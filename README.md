@@ -1,8 +1,8 @@
-###  DATE: 
+###  DATE: 20/03/24
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
+###  NAME: SANJAY M
+###  ROLL NO : 212222110038
+###  DEPARTMENT: CSE(IOT)
 
 
 # EXPERIMENT--02-INTERFACING-A-DIGITAL-INPUT-TO-IOT-DEVELOPMENT-BOARD-
@@ -77,12 +77,42 @@ The full form of an ARM is an advanced reduced instruction set computer (RISC) m
 
 
 ## STM 32 CUBE PROGRAM :
+~~~
+#include "main.h"
+#include "stdbool.h"
+bool IRSENSOR;
+void IRPAIR();
 
+ while (1)
+  {
+	  IRPAIR();
+  }
+void IRPAIR()
+{
+	IRSENSOR=HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_4);
+
+	if(IRSENSOR==1)
+	{
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,RESET);
+		HAL_Delay(1000);
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,SET);
+		HAL_Delay(1000);
+	}
+	else
+	{
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,RESET);
+		HAL_Delay(1000);
+	}
+}
+~~~
 
 
 ## Output  :
  
- 
+ <img width="667" alt="Screenshot 2024-03-05 at 7 52 58 PM" src="https://github.com/sanjay0208/EXPERIMENT--02-INTERFACEING-A-DIGITAL-INPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/119406959/ca884eb1-9030-44e3-9aeb-d0388f7a4852">
+
+ <img width="629" alt="Screenshot 2024-03-05 at 7 52 40 PM" src="https://github.com/sanjay0208/EXPERIMENT--02-INTERFACEING-A-DIGITAL-INPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/119406959/1902575f-5056-4f58-a78d-78baeca7856f">
+
  
  
 ## Result :
